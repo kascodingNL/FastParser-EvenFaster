@@ -9,14 +9,14 @@ namespace CustomIntParser
     {
         static void Main(string[] args)
         {
-            int iterations = 50000;
+            Int64 iterations = 50000;
             if (args.Length == 0)
             {
                 Console.WriteLine("Please give an iteration count, default = 50000");
             }
             else
             {
-                iterations = IntParseFast(args[0]);
+                iterations = Int64.Parse(args[0]);
             }
 
             Console.WriteLine("Testing with " + iterations + " iterations");
@@ -41,6 +41,10 @@ namespace CustomIntParser
             Console.WriteLine("Test 2 took " + watch2.Elapsed);
             watch2.Stop();*/
 
+            Console.WriteLine("");
+            Console.WriteLine("-------------------------------------------------");
+            Console.WriteLine("");
+
             Stopwatch watch = new Stopwatch();
             watch.Start();
             Console.WriteLine("Creating Execution thread...");
@@ -53,11 +57,13 @@ namespace CustomIntParser
             WhileLoop();
         }
 
-        public static void TestJob(int iterations)
+        public static void TestJob(Int64 iterations)
         {
             Console.WriteLine("");
             Console.WriteLine("-------------------------------------------------");
             Console.WriteLine("");
+
+            Console.WriteLine("Starting tests.");
 
             Stopwatch totalTime = new Stopwatch();
             totalTime.Start();
