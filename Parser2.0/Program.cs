@@ -127,12 +127,23 @@ namespace CustomIntParser
 
         private static int IntParseFast(string s)
         {
+            bool negative = false;
             int result = 0;
+            int start = 0;
+
+            if(s[0] == "-")
+            { 
+                negative = true;
+                start = 1;
+            }
             for (int i = 0; i < s.Length; i++)
             {
-                char c = s[i];
+                char c = s[start + i];
                 result = 10 * result + (c - 48);
             }
+
+            if(negative) return -result;
+
             return result;
         }
     }
